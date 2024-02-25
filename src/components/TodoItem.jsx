@@ -21,7 +21,7 @@ const TodoItem = (props) => {
       {todo.map((m) => (
         <div
           key={m}
-          className="mt-9 text-2xl shadow-xl rounded-lg overflow-hidden  p-5 border border-slate-100 flex justify-between"
+          className="mt-5 text-2xl shadow-xl rounded-lg overflow-hidden  p-5 border border-slate-200 flex justify-between"
         >
           <input
             type="checkbox"
@@ -30,13 +30,15 @@ const TodoItem = (props) => {
             onChange={() => handleChecked(m)}
           />
           <label
-            className={`ml-9 ${isChecked[m] ? "line-through" : ""}`}
+            className={`break-words ml-9 ${isChecked[m] ? "line-through" : ""}`}
             htmlFor={m}
+            style={{ wordWrap: "break-word", maxWidth: "80%" }}
           >
+            {" "}
             {m}
           </label>
           <button
-            className="bg-green-400 text-white font-bold text-[20px] ml-9 px-3 py-1 rounded-lg"
+            className="bg-red-500 text-white font-bold text-[20px] ml-9 px-3 py-1 rounded-lg"
             onClick={(e) => handleDelete(e, m)}
           >
             X
